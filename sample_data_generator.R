@@ -89,9 +89,9 @@ for (g in 1:nrGrps) {
 }
 
 
-rm(list= ls()[!(ls() %in% c('base_comp_df','base_surg_df','surg_df'))])
-
 avg_surg_df<-sqldf('SELECT surg_grp, Avg(op_tm) AS avg_op_tm, 
                    Count(op_tm) as Cnt, surg_apprch, color_hex FROM surg_df GROUP BY surg_grp')
 avg_comp_df<-sqldf('SELECT surg_grp, Avg(op_tm) AS avg_op_tm,  Count(op_tm) as Cnt, 
                    surg_apprch, color_hex FROM base_comp_df GROUP BY surg_grp')
+
+rm(list= ls()[!(ls() %in% c('base_comp_df','base_surg_df','surg_df'))])
